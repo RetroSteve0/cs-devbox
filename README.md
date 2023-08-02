@@ -1,5 +1,5 @@
-# codespace-env-tmp
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/universal-ubuntu-dev-template)
+# Ubuntu Dev Environment
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/ubuntu-dev)
 
 This template builds a Codespace using the Universal Ubuntu image and applies the following configuration:
 ```json
