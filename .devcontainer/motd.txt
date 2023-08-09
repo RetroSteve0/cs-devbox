@@ -1,0 +1,10 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                   ┃
+┃   Welcome to your custom Codespace!                               ┃
+┃                                                                   ┃
+┃   To apply customizations and configure your environment,         ┃
+┃   run the following command:                                      ┃
+┃                                                                   ┃
+┃   bash .devcontainer/setup.sh                                     ┃
+┃                                                                   ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
