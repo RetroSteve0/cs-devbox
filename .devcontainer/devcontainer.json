@@ -1,5 +1,4 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-  }
+  "postCreateCommand": ".devcontainer/postCreate.sh"
 }
