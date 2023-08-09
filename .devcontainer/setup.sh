@@ -16,3 +16,5 @@ sudo useradd -m -s /bin/bash -G sudo -p "$hashed_password" $username
 # Update system
 sudo apt-get update
 sudo apt-get upgrade -y
+
+echo 'echo "A sudo account has automatically been set up with a username and password of \"'$username'\"." >> /home/'$username'/.bashrc'
