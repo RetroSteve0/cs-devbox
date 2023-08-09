@@ -1,5 +1,5 @@
 {
   "name": "Custom Codespace",
   "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
-  "postCreateCommand": "echo 'Lol'"
+  "postCreateCommand": "bash .devcontainer/setup.sh"
 }
