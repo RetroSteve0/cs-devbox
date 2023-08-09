@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Default username and password
-username="devadmin"
-password="devadmin"
+username="retrosteve0"
+password="retrosteve0"
 
 # Generate a random salt of 16 bytes
 salt=$(head -c 16 /dev/urandom | base64)
