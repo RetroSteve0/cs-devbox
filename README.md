@@ -1,37 +1,29 @@
 # Ubuntu Dev Environment
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/ubuntu-dev)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/cs-devbox)
 
-This template builds a clean base Ubuntu Codespace.
+This template builds a clean base Ubuntu Codespace. This Codespace runs a script that performs some post imaging tasks, such as ensuring all packages are up to date. By default Codespaces uses an account named `vscode`. Some commands can be executed with `sudo` without needing the password, but others will prompt you for your password. Instead of resetting the password to the built in `vscode` account, it is better practice to create your own account, leaving this one untouched.
 
-## Create your user
-By default Codespaces uses a user named `vscode`.
 
-```bash
-➜ /workspaces/ubuntu-dev (main) $ sudo -l
-Matching Defaults entries for vscode on codespaces-56edb8:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
-    use_pty
-
-User vscode may run the following commands on codespaces-56edb8:
-    (root) NOPASSWD: ALL
-```
-
-While this user does have the `NOPASSWD: ALL` property, some processes such as running `sudo -u postgres psql` prompts for a password for the `vscode` user. Therefore, it is a good idea to create a separate account with sudo access while leaving the default `vscode` account untouched.
-
-### Create a new user
+## Create a new user
 ```bash
 adduser username
 ```
 
-### Add the user to sudoers
+## Add the user to sudoers (Optional, but recommended)
+If you wish to perform sudo commands, you will want to add your user to the `sudo` group.
 ```bash
 usermod -aG sudo username
 ```
 
-### Test the user
+## Test for sudo permissions
+### Switch to your new user
 ```bash
 sudo - username
 ```
 
-If you receive anew prompt after typing the password you set for the user you just created and the `whoami` command returns your new username, you should be set. Running `sudo -l` is also a good test. If you see something similar to `(root) NOPASSWD: ALL`, you're good to go. You know the password, so now if you're prompted for a password for any commands you can now successfully authenticate.
+## List sudo permissions
+```bash
+sudo -l
+```
+
+If the output of `sudo -l` is  `(root) ALL: ALL` then you've done everything right and you're good to go.
