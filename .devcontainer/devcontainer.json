@@ -1,5 +1,5 @@
 {
-  "name": "Customize Codespace",
+  "name": "Custom Codespace",
   "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
-  "postCreateCommand": "sudo cp .devcontainer/motd.txt /etc/motd && cat /etc/motd && rm -rf /etc/motd"
+  "postCreateCommand": "echo 'Lol'"
 }

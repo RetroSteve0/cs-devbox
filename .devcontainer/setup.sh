@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# Prompt for username
-read -p "Enter username: " username
-
-# Prompt for password (without echoing to terminal)
-read -s -p "Enter password: " password
-echo
+# Default username and password
+username="devadmin"
+password="devadmin"
 
 # Generate a random salt of 16 bytes
 salt=$(head -c 16 /dev/urandom | base64)
@@ -19,3 +16,6 @@ sudo useradd -m -s /bin/bash -G sudo -p "$hashed_password" $username
 # Update system
 sudo apt-get update
 sudo apt-get upgrade -y
+
+# Echo a message about the default account setup
+echo "A sudo account has automatically been set up with a username and password of \"$username\"."
