@@ -27,7 +27,7 @@ execute_command sudo git clone https://github.com/pyenv/pyenv.git /usr/local/pye
 execute_command sudo chown -R root:root /usr/local/pyenv
 execute_command echo 'export PYENV_ROOT="/usr/local/pyenv"' | sudo tee -a /etc/bash.bashrc
 execute_command echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | sudo tee -a /etc/bash.bashrc
-execute_command echo 'eval "$(pyenv init -)"' | sudo tee -a /etc/bash.bashrc
+execute_command echo 'eval "$(pyenv init -)"' | sudo tee -a ~/.bashrc
 
 # Reload shell configuration (for the current session)
 execute_command sudo /bin/bash -c "source /etc/bash.bashrc"
