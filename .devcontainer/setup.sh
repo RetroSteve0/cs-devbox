@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Switch to root
+sudo su
+
 # Update system
 sudo apt-get update
 sudo apt-get upgrade -y
