@@ -1,22 +1,39 @@
 #!/bin/bash
 
-# Switch to root
-sudo su
+# Define a log file path
+LOG_FILE="/var/log/install_script.log"
+
+# Function to execute commands and log errors
+execute_command() {
+    "$@" 2>> "$LOG_FILE"
+}
+
+# Clear previous log content
+> "$LOG_FILE"
 
 # Update system
-sudo apt-get update
-sudo apt-get upgrade -y
+execute_command sudo apt-get update -y
+execute_command sudo apt-get upgrade -y
 
 # Install NVM
-sudo git clone https://github.com/nvm-sh/nvm.git /usr/local/nvm
-sudo chown -R root:root /usr/local/nvm
-echo 'export NVM_DIR="$HOME/.nvm"' | sudo tee -a /etc/bash.bashrc
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' | sudo tee -a /etc/bash.bashrc
-echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' | sudo tee -a /etc/bash.bashrc
+execute_command sudo git clone https://github.com/nvm-sh/nvm.git /usr/local/nvm
+execute_command sudo chown -R root:root /usr/local/nvm
+execute_command echo 'export NVM_DIR="/usr/local/nvm"' | sudo tee -a /etc/bash.bashrc
+execute_command echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' | sudo tee -a /etc/bash.bashrc
+execute_command echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' | sudo tee -a /etc/bash.bashrc
 
 # Install Pyenv
-sudo git clone https://github.com/pyenv/pyenv.git /usr/local/pyenv
-sudo chown -R root:root /usr/local/pyenv
-echo 'export PYENV_ROOT="/usr/local/pyenv"' | sudo tee -a /etc/bash.bashrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | sudo tee -a /etc/bash.bashrc
-echo 'eval "$(pyenv init -)"' | sudo tee -a /etc/bash.bashrc
+execute_command sudo git clone https://github.com/pyenv/pyenv.git /usr/local/pyenv
+execute_command sudo chown -R root:root /usr/local/pyenv
+execute_command echo 'export PYENV_ROOT="/usr/local/pyenv"' | sudo tee -a /etc/bash.bashrc
+execute_command echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | sudo tee -a /etc/bash.bashrc
+execute_command echo 'eval "$(pyenv init -)"' | sudo tee -a /etc/bash.bashrc
+
+# Reload shell configuration (for the current session)
+execute_command source /etc/bash.bashrc
+
+# Output a message indicating completion
+echo "Script execution completed."
+
+# Display the log file
+echo "Log file: $LOG_FILE"
