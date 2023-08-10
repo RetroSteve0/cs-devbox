@@ -9,17 +9,13 @@ execute_command() {
 }
 
 # Clear previous log content
+execute_command echo "Clearing log file from previous content..."
 > "$LOG_FILE"
 
 # Update system
+execute_command echo "Updating system..."
 execute_command sudo apt-get update -y
 execute_command sudo apt-get upgrade -y
-
-# Install expect
-execute_command sudo apt-get install expect -y
-
-# Run the unminimize command with automatic "yes" response
-execute_command expect -c 'spawn sudo unminimize; expect "Continue? \[y/N\]"; send "y\r"; expect eof'
 
 # Display the log file
 echo "Log file: $LOG_FILE"
