@@ -13,12 +13,16 @@ animate_progress() {
     local delay_seconds="$1"
     local max_dots=3
     local dots=""
-
+    
+    echo -n " ["
+    
     for ((i = 0; i < max_dots; i++)); do
         dots+="."
-        echo -ne "$dots\r"
+        echo -n "$dots"
         sleep "$delay_seconds"
     done
+    
+    echo -n "]"
 }
 
 # Step 1: Prompt for username
