@@ -29,7 +29,6 @@ animate_progress() {
 read -p "Enter username: " username
 
 # Step 2: Prompt for passwords until they match
-echo "Enter and confirm password"
 while true; do
     prompt_for_password
 
@@ -42,37 +41,31 @@ done
 
 # Step 3: Generating a random salt
 echo -n "Creating random salt"
+salt=$(openssl rand -hex 16)
 animate_progress 1
 echo " Done."
-
-salt=$(openssl rand -hex 16)
 
 # Step 4: Hashing the password using salt
 echo -n "Hashing the password"
+hashed_password=$(openssl passwd -6 -salt "$salt" "$password")
 animate_progress 1
 echo " Done."
-
-hashed_password=$(openssl passwd -6 -salt "$salt" "$password")
 
 # Step 5: Creating the user account
 echo -n "Creating the user account"
-animate_progress 1
-echo " Done."
-
 sudo useradd -m -s /bin/bash -G sudo -p "$hashed_password" "$username"
+animate_progress 1
 echo "User account created successfully."
 
 # Step 6: Updating the system
 echo -n "Updating the system"
+sudo apt-get update -y
+sudo apt-get upgrade -y
 animate_progress 1
 echo " Done."
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
-
 # Log in as the new user
 echo -n "Logging in as the new user"
-animate_progress 1
 su - "$username"
 
 echo "Script completed successfully."
