@@ -45,5 +45,6 @@ Aside from creating your own sudoer user account, here are some recommendations:
 - Install [Pyenv](https://github.com/pyenv/pyenv)
   - Install Python3 version of choice with `pyenv`
 - Restore manpages with `sudo unminimize`
+- ...and finally, install any other tools you may use such as a C++ compiler, .NET Core, or any other language compilers or interpreters you develop with.
 
 Just a note: After installing `nvm` and `pyenv`, you may need to run `source ~/.bashrc` to get the shell to recognize the new environment variables the installers create -- or simply start a new shell session.
