@@ -22,13 +22,6 @@ execute_command echo 'export NVM_DIR="/usr/local/nvm"' | sudo tee -a /etc/bash.b
 execute_command echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' | sudo tee -a /etc/bash.bashrc
 execute_command echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' | sudo tee -a /etc/bash.bashrc
 
-# Install Pyenv
-execute_command sudo git clone https://github.com/pyenv/pyenv.git /usr/local/pyenv
-execute_command sudo chown -R root:root /usr/local/pyenv
-execute_command echo 'export PYENV_ROOT="/usr/local/pyenv"' | sudo tee -a /etc/bash.bashrc
-execute_command echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | sudo tee -a /etc/bash.bashrc
-execute_command echo 'eval "$(pyenv init -)"' | sudo tee -a ~/.bashrc
-
 # Reload shell configuration (for the current session)
 execute_command sudo /bin/bash -c "source /etc/bash.bashrc"
 
