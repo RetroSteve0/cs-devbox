@@ -8,7 +8,7 @@ prompt_for_password() {
     echo
 }
 
-# Function to display animated progress
+# Function to display animated progress on the same line
 animate_progress() {
     local delay_seconds="$1"
     local max_dots=3
@@ -19,16 +19,18 @@ animate_progress() {
         echo -ne "$dots\r"
         sleep "$delay_seconds"
     done
-    echo
 }
 
 # Step 1: Prompt for username
 read -p "Enter username: " username
 
-# Pause with animated progress
+# Print animated progress on the same line
+echo -n "Creating user account"
 animate_progress 1
+echo " Done."
 
 # Step 2: Prompt for passwords until they match
+echo "Enter and confirm password"
 while true; do
     prompt_for_password
 
@@ -39,35 +41,43 @@ while true; do
     fi
 done
 
-# Pause with animated progress
+# Print animated progress on the same line
+echo -n "Creating random salt"
 animate_progress 1
+echo " Done."
 
 # Step 3: Generating a random salt
-echo "Generating a random salt"
 salt=$(openssl rand -hex 16)
 
-# Pause with animated progress
+# Print animated progress on the same line
+echo -n "Hashing the password"
 animate_progress 1
+echo " Done."
 
 # Step 4: Hashing the password using salt
-echo "Hashing the password"
 hashed_password=$(openssl passwd -6 -salt "$salt" "$password")
 
-# Pause with animated progress
+# Print animated progress on the same line
+echo -n "Creating the user account"
 animate_progress 1
+echo " Done."
 
 # Step 5: Creating the user account
-echo "Creating user account"
 sudo useradd -m -s /bin/bash -G sudo -p "$hashed_password" "$username"
 echo "User account created successfully."
 
-# Pause with animated progress
+# Print animated progress on the same line
+echo -n "Updating the system"
 animate_progress 1
+echo " Done."
 
 # Step 6: Updating the system
-echo "Updating the system"
 sudo apt-get update -y
 sudo apt-get upgrade -y
+
+# Log in as the new user
+echo "Logging in as the new user..."
+su - "$username"
 
 echo "Script completed successfully."
 exit 0
