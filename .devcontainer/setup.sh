@@ -15,8 +15,11 @@ execute_command() {
 execute_command sudo apt-get update -y
 execute_command sudo apt-get upgrade -y
 
-# Unminimize the system
-execute_command y | sudo unminimize
+# Install expect
+execute_command sudo apt-get install expect -y
+
+# Run the unminimize command with automatic "yes" response
+execute_command expect -c 'spawn sudo unminimize; expect "Continue? \[y/N\]"; send "y\r"; expect eof'
 
 # Display the log file
 echo "Log file: $LOG_FILE"
