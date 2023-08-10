@@ -66,6 +66,7 @@ echo " Done."
 
 # Log in as the new user
 echo -n "Logging in as the new user"
+animate_progress 1
 su - "$username"
 
 echo "Script completed successfully."
