@@ -30,7 +30,7 @@ execute_command echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bi
 execute_command echo 'eval "$(pyenv init -)"' | sudo tee -a /etc/bash.bashrc
 
 # Reload shell configuration (for the current session)
-execute_command source /etc/bash.bashrc
+execute_command sudo /bin/bash -c "source /etc/bash.bashrc"
 
 # Output a message indicating completion
 echo "Script execution completed."
