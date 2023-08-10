@@ -63,7 +63,7 @@ echo -n "Updating the system"
 animate_progress 1
 sudo apt-get update -y
 sudo apt-get upgrade -y
-echo " Done."
+echo "Done."
 
 # Log in as the new user
 echo -n "Logging in as the new user"
