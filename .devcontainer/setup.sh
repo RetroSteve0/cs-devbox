@@ -15,5 +15,8 @@ execute_command() {
 execute_command sudo apt-get update -y
 execute_command sudo apt-get upgrade -y
 
+# Unminimize the system
+execute_command y | sudo unminimize
+
 # Display the log file
 echo "Log file: $LOG_FILE"
