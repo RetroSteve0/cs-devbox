@@ -52,16 +52,17 @@ animate_progress 1
 echo " Done."
 
 # Step 5: Creating the user account
-echo -n "Creating the user account"
+echo -n "Creating user account $username."
 sudo useradd -m -s /bin/bash -G sudo -p "$hashed_password" "$username"
 animate_progress 1
+echo ""
 echo "User account created successfully."
 
 # Step 6: Updating the system
 echo -n "Updating the system"
+animate_progress 1
 sudo apt-get update -y
 sudo apt-get upgrade -y
-animate_progress 1
 echo " Done."
 
 # Log in as the new user
