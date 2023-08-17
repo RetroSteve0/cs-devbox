@@ -1,24 +1,48 @@
 # Universal Dev Environment
-This Codespace is based on the `mcr.microsoft.com/devcontainers/base:jammy` image. This is a minimal `Ubuntu 22.04 Jammy` image that allows you to build it up to your liking. It contains many tools such as `git` and `python` preinstalled; however, you will have to expand that and install your own development tools such as `node`, and version management tools such as `nvm` and `pyenv`.
+
+Welcome to the Universal Dev Environment – a versatile and customizable development setup powered by the `mcr.microsoft.com/devcontainers/base:jammy` image. This environment comes preloaded with essential utilities such as `git` and `python`, providing you with a solid foundation for your coding projects.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/cs-devbox)
 
-## Run the Initialization Script
-This repo contains a script that creates a user account and updates all packages to the current latest versions. Due to a Codespace limitation of not allowing the `postCreateCommand` to accept user interaction we have opted to include an optional script that can be ran if you choose to try to automate user account creation and generating an SSH key.
+## Prerequisites
 
-### Running the script
-Once the Codespace has initialized, run the following command:
-```bash
-.devcontainer/setup.sh
-```
+- A GitHub account
+- Basic familiarity with terminal commands
 
-The script will walk you through creating a new user, adding it to the sudo group, generating a random salt, hashing your password, updating the system, and finally logging into the user. Nothing is ever stored in plain text (except for the username) which makes the script secure. Additionally the script will ask if you intend to use this Codespace as a dev environment and will walk you through creating an SSH key to import in your GitHub account. Otherwise, when you attempt to `git push` any commits you'll be met with a `Permission denied` error when working in a repo _outside_ of the Codespace.
+## Purpose
 
-Take caution with any third party scripts ran that you did not create yourself to ensure there is no malicious code that is being executed.
+Designed to accelerate your coding endeavors, the Universal Dev Environment offers an effortless and consistent platform for various projects. With automation scripts and a wide range of customization options, your development experience is taken to the next level.
 
-## Proceed with other customizations
-Now you can begin customizing the Codespace to your liking.
+## Quick Setup
 
-* `nvm` and `pyenv` are two useful tools for developers working with Node.js and Python.
-* Add any VS Code extensions you wish to use to your own [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json) file.
-* If you maintain your environment, you should only have to go through this once, considering you log in to your environment at least once every 30 days.
+1. Get started quickly by using this repository as a template to create your new Codespace:
+   - Click the "Use this template" button to generate a repository based on this template.
+   - Visit your new repository, and click the "Code" button, then select "Open with Codespaces."
+
+2. Navigate to the terminal within your Codespace.
+
+3. Initiate the setup process by copying and pasting the following command:
+
+   ```bash
+   .devcontainer/setup.sh
+   ```
+
+This script will seamlessly guide you through the creation of a new user, system updates, and the generation of an SSH key for GitHub integration. 
+
+Note: While using third-party scripts, exercise caution to ensure there's no malicious code.
+
+If you intend to make this Codespace your primary development environment, respond with "yes" when prompted. This will result in the generation of an SSH keypair, with your public key displayed in the terminal, once the script completes. 
+
+## Importing Your Public Key
+
+1. Visit [this link](https://github.com/settings/ssh/new) to navigate to the GitHub SSH key settings.
+
+2. Copy and paste the public key from your Codespace terminal.
+
+3. Assign a meaningful name to this key for easy identification.
+
+4. Click "Create SSH Key" to finalize the process.
+
+With your public key imported, your Codespace is now seamlessly linked to your GitHub account, enabling you to clone repositories, collaborate, and code without constraints.
+
+Your development journey starts here. Happy coding!
