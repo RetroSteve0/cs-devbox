@@ -4,11 +4,6 @@ Welcome to the Universal Dev Environment – a versatile and customizable develo
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/cs-devbox)
 ![Codespaces Compatible](https://img.shields.io/badge/Codespaces-Compatible-brightgreen)
-![Build Status](https://img.shields.io/github/workflow/status/RetroSteve0/cs-devbox/Build%20and%20Test)
-![Code Coverage](https://img.shields.io/codecov/c/github/RetroSteve0/cs-devbox)
-![Latest Release](https://img.shields.io/github/v/release/RetroSteve0/cs-devbox)
-![License](https://img.shields.io/github/license/RetroSteve0/cs-devbox)
-
 
 ## Prerequisites
 
