@@ -42,9 +42,13 @@ echo -n "Updating the system... "
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-# Execute the following script as the user just created
-echo "Attempting to run commands as $username..."
-su - "$username" -c "/bin/bash .devcontainer/run_commands.sh"
+# Prompt user if they want to customize the environment
+read -p "Do you want to customize the environment? (yes/no): " customize_env
+
+if [[ "$customize_env" == "yes" || "$customize_env" == "y" ]]; then
+    echo "Logging in as $username..."
+    su - "$username" -c "/bin/bash .devcontainer/run_commands.sh"
+fi
 
 # Prompt user to log in as the new user
 read -p "Do you want to log in as $username? (yes/no): " log_in
