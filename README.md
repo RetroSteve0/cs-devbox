@@ -23,9 +23,9 @@ Designed to accelerate your coding endeavors, the Universal Dev Environment offe
 
 3. Initiate the setup process by copying and pasting the following command:
 
-   ```bash
-   .devcontainer/setup.sh
-   ```
+```bash
+.devcontainer/setup.sh
+```
 
 This script will seamlessly guide you through the creation of a new user, system updates, and the generation of an SSH key for GitHub integration. 
 
