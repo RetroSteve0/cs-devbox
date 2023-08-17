@@ -1,0 +1,2 @@
+Copy and paste the contents of this file to GitHub: https://github.com/settings/ssh/new
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICWmyDJRcgOxzfFXsDAoLxm2MOsPXACX02YuOOILWmOy stevengmjr@gmail.com
