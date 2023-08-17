@@ -42,9 +42,17 @@ echo -n "Updating the system... "
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-# Log in as the new user and execute additional commands
+# Execute the following script as the user just created
 echo "Attempting to run commands as $username..."
 su - "$username" -c "/bin/bash .devcontainer/run_commands.sh"
+
+# Prompt user to log in as the new user
+read -p "Do you want to log in as $username? (yes/no): " log_in
+
+if [[ "$log_in" == "yes" || "$log_in" == "y" ]]; then
+    echo "Logging in as $username..."
+    su - "$username"
+fi
 
 echo "Script completed successfully."
 exit 0

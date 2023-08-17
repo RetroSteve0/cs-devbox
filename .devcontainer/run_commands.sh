@@ -5,20 +5,14 @@ generate_ssh_key() {
     read -p "Enter your email address: " email
     echo "Generating SSH key..."
     ssh-keygen -t ed25519 -C "$email"
-    echo "SSH key generated."
 }
 
 
-}# Function to display public key and instructions
+# Function to display public key and instructions
 display_public_key() {
-    # Write instructions to public_key.txt
-    echo "Copy and paste the contents of this file to GitHub: https://github.com/settings/ssh/new" > public_key.txt
-
-    # Append public key to public_key.txt
-    cat ~/.ssh/id_ed25519.pub >> public_key.txt
-
-    # Open the file with nano
-    cat public_key.txt
+    echo -n "Here is your public key: "
+    cat ~/.ssh/id_ed25519.pub
+    echo "Paste your public key at https://github.com/settings/ssh/new. If you have any issues, please see the README.md of this repo for detailed instructions."
 }
 
 # Prompting user if they plan to use Codespace as primry dev env
@@ -32,6 +26,3 @@ if [[ "$use_primary_env" == "yes" || "$use_primary_env" == "y" ]]; then
     echo "SSH key added to ssh-agent."
     display_public_key
 fi
-
-# Destroy session
-echo "Destroying session for $USER..."
