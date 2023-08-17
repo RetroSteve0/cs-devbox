@@ -8,6 +8,18 @@ prompt_for_password() {
     echo
 }
 
+# Function to prompt for yes/no choice
+prompt_yes_no() {
+    while true; do
+        read -p "$1 (yes/no): " choice
+        case "$choice" in
+            [yY]|[yY][eE][sS]) return 0;;
+            [nN]|[nN][oO]) return 1;;
+            *) echo "Invalid choice. Please enter 'yes' or 'no'.";;
+        esac
+    done
+}
+
 # Prompt for username
 read -p "Enter username: " username
 
@@ -43,17 +55,13 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 # Prompt user if they want to customize the environment
-read -p "Do you want to customize the environment? (yes/no): " customize_env
-
-if [[ "$customize_env" == "yes" || "$customize_env" == "y" ]]; then
+if prompt_yes_no "Do you want to customize the environment?"; then
     echo "Logging in as $username..."
     su - "$username" -c "/bin/bash .devcontainer/run_commands.sh"
 fi
 
 # Prompt user to log in as the new user
-read -p "Do you want to log in as $username? (yes/no): " log_in
-
-if [[ "$log_in" == "yes" || "$log_in" == "y" ]]; then
+if prompt_yes_no "Do you want to log in as $username?"; then
     echo "Logging in as $username..."
     su - "$username"
 fi
