@@ -35,7 +35,7 @@ This script will seamlessly guide you through the creation of a new user, system
 If you intend to make this Codespace your primary development environment, respond with "yes" when prompted. This will result in the generation of an SSH keypair, with your public key displayed in the terminal, once the script completes. 
 
 ## Importing Your Public Key
-At time point the script will provide you with your public key for your SSH certificate. Follow the steps outlined below to import that key in to your GitHUb account:
+The customization script will provide you with your public key for your SSH certificate. Follow the steps outlined below to import that key in to your GitHUb account:
 
 1. Visit [this link](https://github.com/settings/ssh/new) to navigate to the GitHub SSH key settings.
 2. Copy and paste the public key from your Codespace terminal.
