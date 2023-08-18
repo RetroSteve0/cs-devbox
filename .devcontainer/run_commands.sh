@@ -9,9 +9,16 @@ generate_ssh_key() {
 
 # Function to display public key and instructions
 display_public_key() {
+    echo "***************************************************************"
+    echo "** PAUSE AND READ THIS SECTION THOROUGHLY BEFORE PROCEEDING. **"
+    echo "***************************************************************"
     echo -n "Here is your public key: "
     cat ~/.ssh/id_ed25519.pub
-    echo "Paste your public key at https://github.com/settings/ssh/new. If you have any issues, please see the README.md of this repo for detailed instructions."
+    echo ""
+    echo "Paste your public key at https://github.com/settings/ssh/new."
+    echo "If you have any issues, please see the README.md of this repo"
+    echo "for detailed instructions."
+    echo ""
 }
 
 # Function to install required Python compilation dependencies
@@ -24,7 +31,7 @@ install_python_dependencies() {
     for package in "${packages[@]}"; do
         if ! dpkg -s "$package" > /dev/null 2>&1; then
             echo "Installing $package..."
-            echo | sudo -S apt-get install "$package" -y
+            sudo apt-get install "$package" -y
         fi
     done
     
@@ -202,5 +209,3 @@ while true; do
         break
     fi
 done
-
-exit 0
