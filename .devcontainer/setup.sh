@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Function to add or remove sudoers entry for apt-get
+modify_sudoers() {
+    local action="$1"
+    local sudoers_file="/etc/sudoers"
+
+    if [ "$action" = "add" ]; then
+        echo "Adding sudoers entry for apt-get..."
+        echo "ALL ALL=(ALL) NOPASSWD: /usr/bin/apt-get" | sudo tee -a "$sudoers_file" > /dev/null
+    elif [ "$action" = "remove" ]; then
+        echo "Removing sudoers entry for apt-get..."
+        sudo sed -i '/ALL ALL=(ALL) NOPASSWD: \/usr\/bin\/apt-get/d' "$sudoers_file"
+    fi
+}
+
 # Function to prompt for password and confirm
 prompt_for_password() {
     read -s -p "Enter password: " password
@@ -54,11 +68,17 @@ echo -n "Updating the system... "
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+# Temporarily modifying sudoers not to prompt for apt-get for customization scrit
+modify_sudoers "add"
+
 # Prompt user if they want to customize the environment
 if prompt_yes_no "Do you want to customize the environment?"; then
     echo "Logging in as $username..."
     su - "$username" -c "/bin/bash .devcontainer/run_commands.sh"
 fi
+
+# Reverting sudoers back to the original configuration
+modify_sudoers "remove"
 
 # Prompt user to log in as the new user
 if prompt_yes_no "Do you want to log in as $username?"; then
