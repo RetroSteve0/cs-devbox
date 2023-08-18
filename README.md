@@ -30,7 +30,7 @@ Designed to accelerate your coding endeavors, the Universal Dev Environment offe
 
 This script will seamlessly guide you through the creation of a new user, system updates, and the generation of an SSH key for GitHub integration. 
 
-Note: While using third-party scripts, exercise caution to ensure there's no malicious code.
+> Note: While using third-party scripts, exercise caution to ensure there's no malicious code.
 
 If you intend to make this Codespace your primary development environment, respond with "yes" when prompted. This will result in the generation of an SSH keypair, with your public key displayed in the terminal, once the script completes. 
 
