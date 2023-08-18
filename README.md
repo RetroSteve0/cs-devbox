@@ -1,8 +1,8 @@
 # Universal Dev Environment
 
-Welcome to the Universal Dev Environment – a versatile and customizable development setup powered by the `mcr.microsoft.com/devcontainers/base:jammy` image. This environment comes preloaded with essential utilities such as `git` and `python`, providing you with a solid foundation for your coding projects.
+Welcome to the Universal Dev Environment – a versatile and customizable development setup powered by the `mcr.microsoft.com/devcontainers/base:jammy` image.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/cs-devbox)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RetroSteve0/cs-devbox)  
 ![Codespaces Compatible](https://img.shields.io/badge/Codespaces-Compatible-brightgreen)
 
 ## Prerequisites
@@ -12,7 +12,7 @@ Welcome to the Universal Dev Environment – a versatile and customizable develo
 
 ## Purpose
 
-Designed to accelerate your coding endeavors, the Universal Dev Environment offers an effortless and consistent platform for various projects. With automation scripts and a wide range of customization options, your development experience is taken to the next level.
+Designed to create a development environment to take with you -- all you need is a device that is capable of running a web browser. Customization scripts allow you to effortlessly create a sudo user, update the system, and set up development for the two most popular programming environments: `python` and `node.js`.
 
 ## Quick Setup
 
@@ -35,6 +35,7 @@ This script will seamlessly guide you through the creation of a new user, system
 If you intend to make this Codespace your primary development environment, respond with "yes" when prompted. This will result in the generation of an SSH keypair, with your public key displayed in the terminal, once the script completes. 
 
 ## Importing Your Public Key
+At time point the script will provide you with your public key for your SSH certificate. Follow the steps outlined below to import that key in to your GitHUb account:
 
 1. Visit [this link](https://github.com/settings/ssh/new) to navigate to the GitHub SSH key settings.
 2. Copy and paste the public key from your Codespace terminal.
@@ -43,4 +44,4 @@ If you intend to make this Codespace your primary development environment, respo
 
 With your public key imported, your Codespace is now seamlessly linked to your GitHub account, enabling you to clone repositories, collaborate, and code without constraints.
 
-Your development journey starts here. Happy coding!
+You are now ready to begin coding and use your Codespace. Happy Coding!
